@@ -34,7 +34,6 @@ out <- gtrend_scraper("tyler.rinker@gmail.com", "password",
     c("ebola", "sars", "hiv", "aids", "influenza", "flu", "the cold"))
 
 as.zoo.gtrends(out[[1]])
-plot(out[[1]])
 
 trend2long(out) \%>\%
    plot

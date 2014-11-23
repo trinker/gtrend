@@ -14,7 +14,6 @@
 #'     c("ebola", "sars", "hiv", "aids", "influenza", "flu", "the cold"))
 #' 
 #' as.zoo.gtrends(out[[1]])
-#' plot(out[[1]])
 #' 
 #' trend2long(out) %>%
 #'    plot
@@ -42,8 +41,8 @@ trend2long <- function(x, ...) {
 #' @export
 plot.trend2long <- function(x, size = 1, ...){
     start <- trend <- term <- NULL
-    ggplot::ggplot(x, ggplot2::aes(x=start, y=trend, color=term, group=term)) +
-        ggplot::geom_line(size=size) 
+    ggplot2::ggplot(x, ggplot2::aes(x=start, y=trend, color=term, group=term)) +
+        ggplot2::geom_line(size=size) 
 }
 
 #' Coerce a data.frame to a \code{trend2long} object.
