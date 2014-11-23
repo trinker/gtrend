@@ -22,7 +22,10 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' gtrend_scraper("tyler.rinker@@gmail.com", "password", "dog bite")
+#' (out <- gtrend_scraper("tyler.rinker@@gmail.com", "password", "dog bite"))
+#' 
+#' library(GTrendsR)
+#' as.zoo(out[[1]])
 #' }
 gtrend_scraper <- function(username, password, phrases, geo = "US"){
 
@@ -49,7 +52,15 @@ gtrend_scraper <- function(username, password, phrases, geo = "US"){
             out
         }
     ), phrases)  
-    class(output) <- "gtrend_scraper"
+    
+    removed <- sapply(output, is.null)
+    if (any(removed)) {
+         output <- output[!removed]   
+         message("No trend data for:\n", paste(names(removed)[removed], 
+             collapse=", "))
+    }
+    
+    class(output) <- c("gtrend_scraper", class(output))
     output
 }
 

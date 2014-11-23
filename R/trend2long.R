@@ -18,10 +18,19 @@
 #' trend2long(out) %>%
 #'    plot
 #' 
+#' library(dplyr)
 #' trend2long(out) %>%
 #'    filter(term %in% c("hiv", "ebola", "sars")) %>%
 #'    as.trend2long %>%
 #'    plot 
+#'    
+#' library(ggplot2)
+#' trend2long(out) %>%
+#'     ggplot(aes(x=start, y=term, fill=trend)) +
+#'     geom_tile() +
+#'     scale_fill_gradient(low="black", high="white") +
+#'     scale_x_date(expand = c(0, 0)) +
+#'     theme_bw() + xlab("time")
 #' }
 trend2long <- function(x, ...) {
     dat <- qdapTools::list_df2df(lapply(x, extract_trend), "term")
@@ -42,7 +51,10 @@ trend2long <- function(x, ...) {
 plot.trend2long <- function(x, size = 1, ...){
     start <- trend <- term <- NULL
     ggplot2::ggplot(x, ggplot2::aes(x=start, y=trend, color=term, group=term)) +
-        ggplot2::geom_line(size=size) 
+        ggplot2::geom_line(size=size) + 
+        ggplot2::xlab("Time") + 
+        ggplot2::ylab("Relative Trend") +
+        ggplot2::scale_color_discrete(name="Term")
 }
 
 #' Coerce a data.frame to a \code{trend2long} object.

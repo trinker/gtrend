@@ -8,10 +8,11 @@ Authors@R: c(person("Tyler", "Rinker", email =
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Wraps the functionlity of the GTrendsR package into convenient
     wrappers that grab and format trend data from Google.
-License: MIT
+License: GPL-2
 URL: https://github.com/trinker/gtrend
 BugReports: https://github.com/trinker/gtrend/issues
 LazyData: TRUE
 Imports:
+    devtools,
     ggplot2,
     qdapTools

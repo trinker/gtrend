@@ -38,10 +38,19 @@ as.zoo.gtrends(out[[1]])
 trend2long(out) \%>\%
    plot
 
+library(dplyr)
 trend2long(out) \%>\%
    filter(term \%in\% c("hiv", "ebola", "sars")) \%>\%
    as.trend2long \%>\%
    plot
+
+library(ggplot2)
+trend2long(out) \%>\%
+    ggplot(aes(x=start, y=term, fill=trend)) +
+    geom_tile() +
+    scale_fill_gradient(low="black", high="white") +
+    scale_x_date(expand = c(0, 0)) +
+    theme_bw() + xlab("time")
 }
 }
 

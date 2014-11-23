@@ -32,7 +32,10 @@ using the \pkg{GTrendsR} package \url{https://github.com/dvanclev/GTrendsR}.
 }
 \examples{
 \dontrun{
-gtrend_scraper("tyler.rinker@gmail.com", "password", "dog bite")
+(out <- gtrend_scraper("tyler.rinker@gmail.com", "password", "dog bite"))
+
+library(GTrendsR)
+as.zoo(out[[1]])
 }
 }
 \references{
