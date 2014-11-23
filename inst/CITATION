@@ -3,14 +3,15 @@ citHeader("To cite gtrend in publications, please use:")
 
 
 citEntry(entry = "manual",
-    title = "",
-    author = "First M. Last",
-    organization = "",
-    address = "",
-    note = "version 1.0.0",
-    year = "",
-    url = "", 
-    textVersion  = paste("Last, M. F. (YEAR).",
-        "TITLE.",
-        "version 1.0.0." ")
+    title = "{gtrend}: A Wrapper for the GTrendsR Package",
+    author = "Tyler W. Rinker",
+    organization = "University at Buffalo/SUNY",
+    address = "Buffalo, New York",
+    note = "version 0.1.0",
+    year = "2014",
+    url = "http://github.com/trinker/gtrend", 
+    textVersion  = paste("Rinker, T. W. (2014).",
+        "gtrend: A Wrapper for the GTrendsR Package.",
+        "version 0.1.0. University at Buffalo. Buffalo, New York.",
+        "http://github.com/trinker/gtrend")
 )

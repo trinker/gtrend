@@ -1,17 +1,31 @@
-#' Title
+#' extract_trend List Output to Long Format
 #' 
-#' Description
+#' Reshape a extract_trend list output to long format with a term colun added.
 #' 
-#' @param x
-#' @param \ldots
-#' @return
-#' @references
-#' @keywords
+#' @param x An extract_trend list output.
+#' @param \ldots Currently ignored.
+#' @return returns a \code{data.frame} of trend data by lookup terms.
 #' @export
 #' @rdname trend2long
 #' @examples
+#' \dontrun{
+#' library(dplyr)
+#' out <- gtrend_scraper("tyler.rinker@@gmail.com", "password", 
+#'     c("ebola", "sars", "hiv", "aids", "influenza", "flu", "the cold"))
+#' 
+#' as.zoo.gtrends(out[[1]])
+#' plot(out[[1]])
+#' 
+#' trend2long(out) %>%
+#'    plot
+#' 
+#' trend2long(out) %>%
+#'    filter(term %in% c("hiv", "ebola", "sars")) %>%
+#'    as.trend2long %>%
+#'    plot 
+#' }
 trend2long <- function(x, ...) {
-    dat <- list_df2df(lapply(x, extract_trend), "term")
+    dat <- qdapTools::list_df2df(lapply(x, extract_trend), "term")
     class(dat) <- c("trend2long", class(dat))
     dat
 }
@@ -22,26 +36,25 @@ trend2long <- function(x, ...) {
 #' Plots a trend2long object.
 #' 
 #' @param x The trend2long object.
+#' @param size The line size of the trend line.
 #' @param \ldots ignored
 #' @method plot trend2long
 #' @export
-plot.trend2long <- function(x, ...){
-    ggplot::ggplot(x, aes(x=start, y=trend, color=term, group=term)) +
-        ggplot::geom_line(size=1) 
+plot.trend2long <- function(x, size = 1, ...){
+    start <- trend <- term <- NULL
+    ggplot::ggplot(x, ggplot2::aes(x=start, y=trend, color=term, group=term)) +
+        ggplot::geom_line(size=size) 
 }
 
-#' Title
+#' Coerce a data.frame to a \code{trend2long} object.
 #' 
-#' Description
+#' Coerce a data.frame to a \code{trend2long} object.
 #' 
-#' @param x
-#' @param \ldots
-#' @return
-#' @references
-#' @keywords
+#' @return Returns a a \code{trend2long} object.
+#' @note There is no object checking.  It is the user's responsibility to make 
+#' sure the object being coerced correspondes to a \code{trend2long} object.
 #' @export
 #' @rdname trend2long
-#' @examples
 as.trend2long <- function(x, ...){
     class(x) <- c("trend2long", class(x))
     x
