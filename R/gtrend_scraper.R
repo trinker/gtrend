@@ -29,6 +29,8 @@
 #' }
 gtrend_scraper <- function(username, password, phrases, geo = "US"){
 
+    gtrends <- NULL
+    
     reqcheck <- require("GTrendsR")
 
     if (!reqcheck) {

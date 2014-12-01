@@ -23,7 +23,7 @@ And constructed with the following guidelines:
 CHANGES IN gtrend VERSION 0.1.0
 ----------------------------------------------------------------
 
-* The first CRAN installation of the gtrend package
+* The first installation of the gtrend package
 
 * Package designed to wraps the functionlity of the GTrendsR package into 
   convenient wrappers that grab and format trend data from Google.

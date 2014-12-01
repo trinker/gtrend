@@ -14,5 +14,10 @@ BugReports: https://github.com/trinker/gtrend/issues
 LazyData: TRUE
 Imports:
     devtools,
+    dplyr,
     ggplot2,
-    qdapTools
+    qdapTools,
+    scales
+Suggests:
+    GTrendsR,
+    plotflow
