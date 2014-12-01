@@ -31,13 +31,13 @@ gtrend_scraper <- function(username, password, phrases, geo = "US"){
 
     gtrends <- NULL
     
-    reqcheck <- require("GTrendsR")
+    reqcheck <- suppressWarnings(require("GTrendsR"))
 
     if (!reqcheck) {
 
-        message("GTrendsR package not found.\nShould I attemt to get from GitHub?")
+        message("GTrendsR package not found.\nShould I attempt to get from GitHub?")
         ans <- menu(c("Yes", "No"))
-        if (ans == "2") {
+        if (ans == "1") {
             devtools::install_bitbucket("persican/gtrendsr")
         }
         reqcheck <- require("GTrendsR")

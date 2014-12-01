@@ -75,14 +75,14 @@ plot.trend_facet <- function(x, rect.alpha = .025, ncol = 2, ...){
 
     `%>%` <- dplyr::`%>%`
 
-    reqcheck <- require("plotflow")
+    reqcheck <- suppressWarnings(require("plotflow"))
 
     if (!reqcheck) {
 
-        message("plotflow package not found.\nShould I attemt to get from GitHub?")
+        message("plotflow package not found.\nShould I attempt to get from GitHub?")
         ans <- menu(c("Yes", "No"))
-        if (ans == "2") {
-            devtools::install_bitbucket("trinker/plotflow")
+        if (ans == "1") {
+            devtools::install_github("trinker/plotflow")
         }
         reqcheck <- require("plotflow")
         if (!reqcheck) stop("Could not load or install plotflow package")
