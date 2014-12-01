@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 NEWS.md
 ^\.travis\.yml$
+travis-tool.sh
+\.travis\.yml
