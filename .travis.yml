@@ -8,6 +8,7 @@ install:
   - sh -e /etc/init.d/xvfb start
   - ./travis-tool.sh install_github hadley/devtools
   - ./travis-tool.sh install_github dvanclev/GTrendsR
+  - ./travis-tool.sh install_github trinker/plotflow  
   - ./travis-tool.sh install_deps
 script: ./travis-tool.sh run_tests
 notifications:
