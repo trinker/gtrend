@@ -45,8 +45,8 @@ gtrend_scraper <- function(username, password, phrases, geo = "US"){
     }
 
     ch <- GTrendsR::gconnect(username, password)
-    phrases <- gsub("\\s+", "\\+", gsub("[-,]", " ", phrases))
-
+    phrases <- sprintf("\"%s\"", gsub("[-,]", " ", phrases))
+    
     output <- setNames(lapply(phrases, function(x) {
             out <- try(gtrends(ch, query = x , geo = geo))
             if (inherits(out, "try-error")) return(NULL)

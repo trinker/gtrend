@@ -18,6 +18,17 @@ And constructed with the following guidelines:
 
 * Bug fixes and misc changes bumps the patch
 
+CHANGES IN gtrend VERSION 0.1.1
+----------------------------------------------------------------
+
+BUGS
+
+* `gtend_scraper` used  the following approach to deal with multi-word terms:
+  `phrases <- gsub("\\s+", "\\+", gsub("[-,]", " ", phrases))` when it should
+  have been enclosed with quotes:
+  `phrases <- sprintf("\"%s\"", gsub("[-,]", " ", phrases))` as seen:
+  https://support.google.com/trends/answer/4359582?hl=en&ref_topic=4365599 
+  Spotted by David Serfass.
 
 
 CHANGES IN gtrend VERSION 0.1.0
