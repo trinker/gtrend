@@ -7,11 +7,11 @@ citEntry(entry = "manual",
     author = "Tyler W. Rinker",
     organization = "University at Buffalo/SUNY",
     address = "Buffalo, New York",
-    note = "version 0.1.0",
+    note = "version 0.1.1",
     year = "2014",
     url = "http://github.com/trinker/gtrend", 
     textVersion  = paste("Rinker, T. W. (2014).",
         "gtrend: A Wrapper for the GTrendsR Package.",
-        "version 0.1.0. University at Buffalo. Buffalo, New York.",
+        "version 0.1.1. University at Buffalo. Buffalo, New York.",
         "http://github.com/trinker/gtrend")
 )
