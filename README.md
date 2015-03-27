@@ -1,6 +1,7 @@
 gtrend
 =======
 
+[![Project Status: Inactive - The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](http://www.repostatus.org/badges/0.1.0/inactive.svg)](http://www.repostatus.org/#inactive)
 [![Build Status](https://travis-ci.org/trinker/gtrend.png?branch=master)](https://travis-ci.org/trinker/gtrend)
 
 gtrend is a package that wraps the functionlity of the [GTrendsR package](https://github.com/dvanclev/GTrendsR) into convenient wrappers that grab and format trend data from Google.
