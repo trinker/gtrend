@@ -35,6 +35,7 @@
 trend2long <- function(x, ...) {
     dat <- qdapTools::list_df2df(lapply(x, extract_trend), "term")
     class(dat) <- c("trend2long", class(dat))
+    dat[["term"]] <- gsub("(^\")|(\"$)", "", dat[["term"]])    
     dat
 }
 
