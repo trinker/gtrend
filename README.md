@@ -11,9 +11,8 @@ To download the development version of gtrend:
 Download the [zip ball](https://github.com/trinker/gtrend/zipball/master) or [tar ball](https://github.com/trinker/gtrend/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
 
 ```r
-# install.packages("devtools")
-
-devtools::install_github("trinker/gtrend")
+if (!require("pacman")) install.packages("pacman")
+p_load_gh("dvanclev/GTrendsR", "trinkergtrend")
 ```
 
 
