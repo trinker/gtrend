@@ -15,7 +15,7 @@ if (!require("pacman")) install.packages("pacman")
 
 p_load_gh(
     "dvanclev/GTrendsR", 
-    "trinkergtrend"
+    "trinker/gtrend"
 )
 ```
 
