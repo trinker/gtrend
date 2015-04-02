@@ -12,7 +12,11 @@ Download the [zip ball](https://github.com/trinker/gtrend/zipball/master) or [ta
 
 ```r
 if (!require("pacman")) install.packages("pacman")
-p_load_gh("dvanclev/GTrendsR", "trinkergtrend")
+
+p_load_gh(
+    "dvanclev/GTrendsR", 
+    "trinkergtrend"
+)
 ```
 
 
